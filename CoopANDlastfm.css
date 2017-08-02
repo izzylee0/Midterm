@@ -1,0 +1,107 @@
+h2 {
+	text-align: center;
+	font-family: futura;
+	color:#505050;
+	padding:0%;
+	font-size: 400%;
+	margin-top: 2%;
+		text-shadow:
+    -1px -1px 0 gray,
+    1px -1px 0 gray,
+    -1px 1px 0 gray,
+    1px 1px 0 gray;
+	}
+
+	h3{
+		text-align: center;
+	font-family: futura;
+	color:#505050;
+	padding:%;
+	font-size: 200%;
+	margin-top: -5%;
+	text-shadow:
+    -.5px -.5px 0 gray,
+    .5px -.5px 0 gray,
+    -.5px .5px 0 gray,
+    .5px .5px 0 gray;
+    position: static;
+    font-weight: thin;
+
+	}
+
+body {
+	background-image: url("http://theredlist.com/media/database/fine_arts/arthistory/painting/peinture_abstraite/yves-klein/009-yves-klein-theredlist.jpg");
+	background-size:cover;
+	background-repeat: no-repeat;
+    background-attachment: fixed;
+	}
+
+.aButton {
+	position:absolute;
+  	top:35%;
+  	left:50%;
+  	margin-top: -25px;
+  	margin-left: -50px;
+  	position: absolute;
+  	font-family: futura;
+  	background-color: #F5F5DC;
+  	color: #505050;
+  	border-color: #505050;
+  	font-size: 25px;
+  	opacity: .9;
+  	text-align:center;
+  	font-weight: thin;
+  	border-width: 1.5px;
+}
+
+
+#query {
+	position:absolute;
+  	top:25%;
+ 	left:57%;
+  	margin-top: -25px;
+  	margin-left: -180px;
+  	height: 30px;
+  	width: 200px;
+  	font-family: futura;
+  	background-color: #FFFFF0;
+  	color: #505050;
+  	outline-style: thin;
+  	outline-color: #FFFFF0;
+  	font-size: 20px;
+  	font-weight: thick;
+    opacity: .85;
+    text-align:center;
+  	border-color: #505050;
+  	border-width: 1.5px;
+}
+
+.content {
+	 position: absolute;
+	 top: 50%;
+	 right: 19%;
+}
+
+#images {
+
+
+   
+
+ 
+
+}
+
+#searchResults {
+	text-align: center;
+    top: 75%;
+    left:25%;
+	position: absolute;
+	width: 50%;
+	font-family: futura;
+	font-size: 100px;
+	color:#505050;
+	letter-spacing: .1em;
+	line-height: 45px
+	top: 1em;
+
+}
