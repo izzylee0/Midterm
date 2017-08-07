@@ -6,19 +6,48 @@
 		<meta name="viewport" content="width=device-width">
 		<title>Sound and color with me</title>
 		<link rel="stylesheet" type="text/css" href="CoopANDlastfm.css"/>
+		<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
+		
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
+		
 	</head>
 	<body>
 		<h2>SOUND AND COLOR</h2>
 		<h3> a project in synesthesia</h3>
 		<input id="query" type="text" placeholder="ENTER A COLOR"></input>
 		<button class="aButton" id="search">SUBMIT</button>
-		<div class ="content" id="images"> </div>
-			<div id="images"></div>
-			<div id="searchResults"> <em> </div>
-
-
+		<div id="images"></div>
+		<div id="searchResults" div class="ui-widget-content"> </div>
 		<script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-		<script src="coopAndLastFM2.js"></script>
+		<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+ 		<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+		
+		<script charset="utf-8" type="text/javascript" src="http://underscorejs.org/underscore-min.js"></script>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/themes/smoothness/jquery-ui.css">
+		<form id="myform">
+    		<select id="fonts"> 
+       			<option value="Arial">Arial</option>
+        		<option value="Verdana ">Verdana </option>
+        		<option value="Impact ">Impact </option>
+        		<option value="Futura">Futura</option>
+   			 </select>
+			<select id="size">
+       			<option value="30">30</option>
+        		<option value="60">60</option>
+        		<option value="90">90</option>
+        		<option value="120">120</option>
+        		</select>
+        	<select id="color">
+        		<option value="green">green</option>
+        		<option value="purple">purple</option>
+    		</select>
+    		</form>
+    		<div id="resubmit">resubmit!</div>
+    	
+		
+
 		<script>
 			//Code to be executed once the page has fully loaded
 			$(document).ready(function(){
@@ -26,6 +55,8 @@
 				app.initialize();
 			});		
 		</script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/p5.js"></script>
+		<script src="coopAndLastFM2.js"></script>
 	</body>
 </html>
 

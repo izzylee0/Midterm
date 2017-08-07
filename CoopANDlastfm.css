@@ -82,26 +82,96 @@ body {
 	 right: 19%;
 }
 
-#images {
-
-
-   
-
- 
-
+#searchResults.ui-widget-content {
+background: #000;
+background: none;
+border: none;
 }
+
+
+
 
 #searchResults {
 	text-align: center;
-    top: 75%;
-    left:25%;
+  top: 75%;
+  left:25%;
 	position: absolute;
 	width: 50%;
 	font-family: futura;
-	font-size: 100px;
+	font-size: 50px;
 	color:#505050;
 	letter-spacing: .1em;
 	line-height: 45px
 	top: 1em;
+  background-color: rgba(0, 0, 0, 0);
 
 }
+
+#size{
+display: block; 
+padding: 2px 40px 2px 6px 
+!important; 
+max-width: 80%; 
+height: 40px; 
+!important; border: 1px 
+solid #e3e3e3; 
+border-radius: 3px; 
+background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png")
+right center no-repeat; 
+background-color: #fff; 
+color: #444444; 
+font-size: 12px; 
+line-height: 16px !important; 
+appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; 
+opacity: .95;
+}
+
+#fonts{
+display: block; 
+padding: 10px 70px 10px 13px 
+!important; max-width: 100%; 
+height: auto 
+!important; border: 20px 
+border: transparent;
+solid #e3e3e3; border-radius: 3px; 
+background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png") 
+right center no-repeat; 
+background-color: #fff; 
+color: #444444; font-size: 12px; 
+line-height: 16px !important; 
+appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; 
+opacity: .95;
+padding-bottom: 200px;
+position:fixed;
+top: 50px;
+}
+
+#color {
+display: block; 
+padding: 2px 40px 2px 20px 
+!important; 
+max-width: 80%; 
+height: 40px
+!important; 
+border: 1px
+solid #e3e3e3; 
+border-radius: 3px; 
+background: url("https://image.ibb.co/iMeAJv/selectbox_arrow.png")
+right center no-repeat; 
+background-color: #fff; 
+color: #444444; 
+font-size: 12px; 
+line-height: 16px !important; 
+appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; 
+opacity: .95;
+
+}
+
+
+#myform.hover #fonts
+{
+    display: block;
+    padding-bottom: 20px;
+
+}
+
