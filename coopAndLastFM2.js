@@ -10,22 +10,11 @@ var app = {
 		$("#searchResults").html("");
 		$("#searchResults").resizable();
 			//using jquery to get value of query input box
-			var newSearchTerm = $("#query").val(); //new
-			console.log(newSearchTerm); //had 'currentWord' before
+		var newSearchTerm = $("#query").val(); //new
+		console.log(newSearchTerm); //had 'currentWord' before
 		//Execute the API call function with the 'newSearchTerm' as the argument
 		app.searchCoopHew(newSearchTerm); 
 		app.searchlastFM(newSearchTerm);
-		var x = 0;
-
-function setup() {
-  background(100);  
-}
-
-function draw() {
-  ellipse(x, height/2, 20, 20);
-  x = x + 1;
-}
-
 
 	});
 
@@ -38,10 +27,7 @@ function draw() {
 				//Use jQuery's trigger() function to execute the click event
 				$("#search").trigger('click');
 
-
 			}
-
-		
 		});
 	},
 
@@ -60,74 +46,30 @@ function draw() {
 				console.log(data.status);
 			},
 			success: function(data){
+				// this is getting triggered twice by something!
 				console.log("Woohoo!");
 				console.log(data);
+				
 				//for (var i = 0; i < data.objects.length; i++){
-					var randomImgNum = Math.floor(Math.random() * 100);
-					console.log(randomImgNum);
+
+				//dont access properties that might not be there, only make your random numer
+				//as large as your results array
+				var randomImgNum = Math.floor(Math.random() * data.objects.length);
+				console.log(randomImgNum);
+				if (data.objects[randomImgNum]) {
 					var searchResults = data.objects[randomImgNum].images[0].b.url; 
 					console.log(searchResults);
 
-					//var textsearchResults;
-					//function preload() {
-					//	textsearchResults = loadJSON(searchResults);
-					//}
-					//function setup() {
-  //noLoop();
-//}
-
-
-
-
-			
-
-
-
-				//	var loadedImages;
-				//	function preload() {
-				//	loadedImages = loadImage("searchResults");
-				//	}
-				//	function setup() {
-				//	image(loadedImages, 0,0);
-				//	}
-
-			
-				// Load the image	
-					//var loadedImages;
-					//function setup() {
-					//createCanvas(720, 400);
-					//loadedImages = loadImage(searchResults);
-					//}
-					//function draw () {
-					//image(loadedImages, 0, 0);
-					//}
-
-
-	//var img = $('<img />',
-	//{src: searchResults})
-	//.appendTo($('#images'));
-	//app.searchCoopHew(data);
-
-					
-  //	var img;  // Declare variable 'img'.
-
-//function setup() {
- // createCanvas(720, 400);
-  //img = loadImage("searchResults");  // Load the image
-//}function draw() {
-  // Displays the image at its actual size at point (0,0)
-  //image(img, 0, 0);
-  // Displays the image at point (0, height/2) at half size
- // image(img, 0, height/2, img.width/2, img.height/2);
-//}
-
-
-
-
-					
+					//you can call a p5 function from here!
+					loadTheImage(searchResults);
+					// var img = $('<img />',
+					// {src: searchResults})
+					// .appendTo($('#images'));
+					app.searchCoopHew(data);
+				}
 				
 
-		}
+			}
 		});
 	},
 
@@ -174,18 +116,48 @@ function draw() {
 		});
 
 		$("#size").change(function() {
-   	 $('#searchResults').css("font-size", $(this).val() + "px");
+	   	 	$('#searchResults').css("font-size", $(this).val() + "px");
 		});
 
 		$("#color").change(function() {
 		$('#searchResults').css("color", $(this).val());
 		});
-		$(window.load(function(){
+		
+		// syntax error
+		$(window).load(function(){
 			$("#searchResults").resizable();
-		}));
+		});
 		
 
 	},
 	
 
-		};
+};
+
+// global variable to hold onto the image
+var theImage;
+
+// p5 code shouldn't be inside another object, keep it global
+function setup() {
+	console.log("Setup");
+	createCanvas(960, 540);
+
+	//Call the function to make the AJAX call
+	app.initialize();
+}
+
+function draw() {
+	background(255);
+	
+	if (theImage){
+		image(theImage, 0, 0);
+	} else {
+		fill(0);
+		text("Getting Data");
+	}
+}
+
+function loadTheImage(url) {
+	console.log('loadingImage');
+	theImage = loadImage(url);
+}
