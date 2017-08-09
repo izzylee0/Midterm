@@ -144,6 +144,9 @@ var app = {
 //add variables for songTitle string and font string
 var theImage, font, songTitle;
 
+//green variabe for tint, unlocked boolean
+var g, unlocked = false;
+
 // p5 code shouldn't be inside another object, keep it global
 function setup() {
 	console.log("Setup");
@@ -158,8 +161,15 @@ function setup() {
 
 function draw() {
 	background(255);
+
+	//if unlocked is true, set the green value equal to the mouse
+	if (unlocked) {
+		// get g equal to a value between 0 - 255 that corresponds to the x pos on the canvas
+		g = map(mouseX, 0, width, 0, 255);
+	}
 	
 	if (theImage){
+		tint(150, g, 0);
 		image(theImage, 0, 0);
 	} else {
 		fill(0);
@@ -171,6 +181,13 @@ function draw() {
 		text(songTitle, width/2, height/2);
 	}
 	
+}
+
+// toggle the unlock on a mousePressed (or button click or whatever you want!)
+function mousePressed() {
+	// set unlocked equal to its opposite
+	// aka, if its true, make it false and vice versa
+	unlocked =! unlocked;
 }
 
 function loadTheImage(url) {
