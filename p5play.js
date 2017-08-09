@@ -9,10 +9,14 @@ var app = {
 			//clear track title in html
 		$("#searchResults").html("");
 		$("#searchResults").resizable();
+		$("images").resizable();
 			//using jquery to get value of query input box
 		var newSearchTerm = $("#query").val(); //new
 		console.log(newSearchTerm); //had 'currentWord' before
 		//Execute the API call function with the 'newSearchTerm' as the argument
+		//$("#blur-button").click(function(){
+
+
 		app.searchCoopHew(newSearchTerm); 
 		app.searchlastFM(newSearchTerm);
 
@@ -27,8 +31,22 @@ var app = {
 				//Use jQuery's trigger() function to execute the click event
 				$("#search").trigger('click');
 
+
 			}
 		});
+		$("#right-arrow").click(function(){
+			saveCanvas('My Album Cover','jpg');
+			$("#search").trigger('click');
+		});
+		$("#left-arrow").click(function(){
+			parent.history.back();
+		});
+
+		$(".bButton").click(function(){
+			saveCanvas('My Album Cover','jpg');
+		
+
+	});
 	},
 
 
@@ -61,10 +79,10 @@ var app = {
 					console.log(searchResults);
 
 					//you can call a p5 function from here!
-					//loadTheImage(searchResults);
-					var img = $('<img />',
-					{src: searchResults})
-					.appendTo($('#images'));
+					loadTheImage(searchResults);
+					// var img = $('<img />',
+					// {src: searchResults})
+					// .appendTo($('#images'));
 					app.searchCoopHew(data);
 				}
 				
@@ -95,33 +113,29 @@ var app = {
 				//console.log(randomTrackNum);
 				var searchResults = data.results.trackmatches.track[randomTrackNum].name; //in future iteration would like to choose randomly from top 50 tracks 
 				console.log(searchResults);
-				// var htmlString = "<p class='lastFMresults'>" + searchResults + "</p>";
-				// $("#searchResults").append(htmlString);
+				var htmlString = "<p class='lastFMresults'>" + searchResults + "</p>";
+				//$("#searchResults").append(htmlString);
 				// document.getElementById("searchResults").contentEditable='true';
 				// $("#searchResults").draggable();
-    // 			$( "#searchResults").resizable();
-    			songTitle = searchResults;
-  			
+    // 			$("#searchResults").resizable();
+
+
+  			theSong = searchResults;
 	
 			}
 		
 		});
 
+	
 
-			
+	
     		
 		//options for user to change text in any way they would like 
 		$("#fonts").change(function() {
+		
+
     	//alert($(this).val());
-    	
-    		// set global font variable to select option
-    		font = $(this).val();
-   		
-   		//$('#searchResults').css("font-family", $(this).val());
-		});
-		$("#right-arrow").click(function(){
-			
-			$("#search").trigger('click');
+   		// $('#theSong').css("font-family", $(this).val());
 		});
 
 		$("#size").change(function() {
@@ -132,10 +146,8 @@ var app = {
 		$('#searchResults').css("color", $(this).val());
 		});
 		
-		// syntax error
-		$(window).load(function(){
-			$("#searchResults").resizable();
-		});
+		
+		
 		
 
 	},
@@ -144,82 +156,70 @@ var app = {
 };
 
 // global variable to hold onto the image
-<<<<<<< HEAD
-//var theImage;
-=======
+var theImage, theSong; 
 
-//add variables for songTitle string and font string
-var theImage, font, songTitle;
+var alpha =  255;
 
-//green variabe for tint, unlocked boolean
-var g, unlocked = false;
->>>>>>> 2421740e9252b1b0cee9c7a2b6796c5a2cd91a74
 
-// p5 code shouldn't be inside another object, keep it global
-//function setup() {
-//	console.log("Setup");
-//	createCanvas(960, 540);
+
+function setup() {
+	console.log("Setup");
+	var canvas= createCanvas(windowWidth, windowHeight);
+	canvas.parent('sketch-holder');
 
 	//Call the function to make the AJAX call
-<<<<<<< HEAD
-//	app.initialize();
-//}
-
-//function draw() {
-//	background(255);
-	
-//	if (theImage){
-//		image(theImage, 0, 0);
-//	} else {
-//		fill(0);
-//		text("Getting Data");
-//	}
-//}
-
-//function loadTheImage(url) {
-//	console.log('loadingImage');
-//	theImage = loadImage(url);
-//}
-=======
 	app.initialize();
-
-	// set an initial condition
-	font = "Arial";
 }
 
-function draw() {
-	background(255);
 
-	//if unlocked is true, set the green value equal to the mouse
-	if (unlocked) {
-		// get g equal to a value between 0 - 255 that corresponds to the x pos on the canvas
-		g = map(mouseX, 0, width, 0, 255);
-	}
+function draw() {
+	//making canvas clear so that you don't see it before image loads
+	clear();
 	
 	if (theImage){
-		tint(150, g, 0);
 		image(theImage, 0, 0);
+		//filter(POSTERIZE,mouseX);
+		//tint(150, mouseX, 0);
+
 	} else {
 		fill(0);
 		text("Getting Data");
 	}
-	
-	if(songTitle) {
-		textFont(font);
-		text(songTitle, width/2, height/2);
+
+	if(theSong) {
+		fill(150, mouseY, 0);
+		//textSize(52, mouseX, 0);
+		text(theSong, mouseX, mouseY);
+		if(!mousePressed){ 
+		stop(); }
+
+		
+		
+		
+		//textFont
+
 	}
-	
 }
 
-// toggle the unlock on a mousePressed (or button click or whatever you want!)
-function mousePressed() {
-	// set unlocked equal to its opposite
-	// aka, if its true, make it false and vice versa
-	unlocked =! unlocked;
+
+
+function mousePressed (){
+	 exit(); 
 }
 
+
+
+
+
+var theImage = loadImage(url);
 function loadTheImage(url) {
 	console.log('loadingImage');
 	theImage = loadImage(url);
+	//tint(255, 128);
+	
 }
->>>>>>> 2421740e9252b1b0cee9c7a2b6796c5a2cd91a74
+
+
+
+
+
