@@ -61,10 +61,10 @@ var app = {
 					console.log(searchResults);
 
 					//you can call a p5 function from here!
-					loadTheImage(searchResults);
-					// var img = $('<img />',
-					// {src: searchResults})
-					// .appendTo($('#images'));
+					//loadTheImage(searchResults);
+					var img = $('<img />',
+					{src: searchResults})
+					.appendTo($('#images'));
 					app.searchCoopHew(data);
 				}
 				
@@ -114,6 +114,10 @@ var app = {
     	//alert($(this).val());
    		 $('#searchResults').css("font-family", $(this).val());
 		});
+		$("#right-arrow").click(function(){
+			
+			$("#search").trigger('click');
+		});
 
 		$("#size").change(function() {
 	   	 	$('#searchResults').css("font-size", $(this).val() + "px");
@@ -135,29 +139,29 @@ var app = {
 };
 
 // global variable to hold onto the image
-var theImage;
+//var theImage;
 
 // p5 code shouldn't be inside another object, keep it global
-function setup() {
-	console.log("Setup");
-	createCanvas(960, 540);
+//function setup() {
+//	console.log("Setup");
+//	createCanvas(960, 540);
 
 	//Call the function to make the AJAX call
-	app.initialize();
-}
+//	app.initialize();
+//}
 
-function draw() {
-	background(255);
+//function draw() {
+//	background(255);
 	
-	if (theImage){
-		image(theImage, 0, 0);
-	} else {
-		fill(0);
-		text("Getting Data");
-	}
-}
+//	if (theImage){
+//		image(theImage, 0, 0);
+//	} else {
+//		fill(0);
+//		text("Getting Data");
+//	}
+//}
 
-function loadTheImage(url) {
-	console.log('loadingImage');
-	theImage = loadImage(url);
-}
+//function loadTheImage(url) {
+//	console.log('loadingImage');
+//	theImage = loadImage(url);
+//}

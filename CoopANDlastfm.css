@@ -56,7 +56,7 @@ body {
 
 
 #query {
-	position:absolute;
+	position:relative;
   	top:25%;
  	left:57%;
   	margin-top: -25px;
@@ -107,6 +107,15 @@ border: none;
 
 }
 
+#images{
+  max-height: 60%;
+
+   max-width: 60%;
+
+    position: relative;
+    
+}
+
 #size{
 display: block; 
 padding: 2px 40px 2px 6px 
@@ -124,6 +133,8 @@ font-size: 12px;
 line-height: 16px !important; 
 appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; 
 opacity: .95;
+position:relative;
+top: 265px;
 }
 
 #fonts{
@@ -143,7 +154,8 @@ appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: 
 opacity: .95;
 padding-bottom: 200px;
 position:fixed;
-top: 50px;
+top: 400px;
+position:relative;
 }
 
 #color {
@@ -164,14 +176,34 @@ font-size: 12px;
 line-height: 16px !important; 
 appearance: none; /* this is must */ -webkit-appearance: none; -moz-appearance: none; 
 opacity: .95;
+position:relative;
+top: 275px;
 
 }
 
-
-#myform.hover #fonts
-{
-    display: block;
-    padding-bottom: 20px;
+#share-buttons img {
+width: 35px;
+padding: 2px;
+border: 0;
+box-shadow: 0;
+display:inline;
+position:static;
 
 }
+
+#sketch-holder{
+  margin: auto;
+}
+
+#right-arrow {
+  opacity: .95;
+  right:50%;
+}
+
+#coopHewFooter {
+  font-family: futura
+  color:#505050 ;
+  top:75%;
+}
+
 
