@@ -95,11 +95,12 @@ var app = {
 				//console.log(randomTrackNum);
 				var searchResults = data.results.trackmatches.track[randomTrackNum].name; //in future iteration would like to choose randomly from top 50 tracks 
 				console.log(searchResults);
-				var htmlString = "<p class='lastFMresults'>" + searchResults + "</p>";
-				$("#searchResults").append(htmlString);
-				document.getElementById("searchResults").contentEditable='true';
-				$("#searchResults").draggable();
-    			$( "#searchResults").resizable();
+				// var htmlString = "<p class='lastFMresults'>" + searchResults + "</p>";
+				// $("#searchResults").append(htmlString);
+				// document.getElementById("searchResults").contentEditable='true';
+				// $("#searchResults").draggable();
+    // 			$( "#searchResults").resizable();
+    			songTitle = searchResults;
   			
 	
 			}
@@ -112,7 +113,11 @@ var app = {
 		//options for user to change text in any way they would like 
 		$("#fonts").change(function() {
     	//alert($(this).val());
-   		 $('#searchResults').css("font-family", $(this).val());
+    	
+    		// set global font variable to select option
+    		font = $(this).val();
+   		
+   		//$('#searchResults').css("font-family", $(this).val());
 		});
 
 		$("#size").change(function() {
@@ -135,7 +140,9 @@ var app = {
 };
 
 // global variable to hold onto the image
-var theImage;
+
+//add variables for songTitle string and font string
+var theImage, font, songTitle;
 
 // p5 code shouldn't be inside another object, keep it global
 function setup() {
@@ -144,6 +151,9 @@ function setup() {
 
 	//Call the function to make the AJAX call
 	app.initialize();
+
+	// set an initial condition
+	font = "Arial";
 }
 
 function draw() {
@@ -155,6 +165,12 @@ function draw() {
 		fill(0);
 		text("Getting Data");
 	}
+	
+	if(songTitle) {
+		textFont(font);
+		text(songTitle, width/2, height/2);
+	}
+	
 }
 
 function loadTheImage(url) {
