@@ -137,6 +137,11 @@ var app = {
 			$("#searchResults").resizable();
 		});
 		
+		$("#save").click(function() {
+
+			saveCanvas('test', 'jpg');
+
+		});
 
 	},
 	
