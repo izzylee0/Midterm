@@ -61,11 +61,11 @@ var app = {
 					console.log(searchResults);
 
 					//you can call a p5 function from here!
-					//loadTheImage(searchResults);
-					var img = $('<img />',
-					{src: searchResults})
-					.appendTo($('#images'));
-					app.searchCoopHew(data);
+					loadTheImage(searchResults);
+					// var img = $('<img />',
+					// {src: searchResults})
+					// .appendTo($('#images'));
+					//app.searchCoopHew(data);
 				}
 				
 
@@ -137,6 +137,11 @@ var app = {
 			$("#searchResults").resizable();
 		});
 		
+		$("#save").click(function() {
+
+			saveCanvas('test', 'jpg');
+
+		});
 
 	},
 	
@@ -144,43 +149,20 @@ var app = {
 };
 
 // global variable to hold onto the image
-<<<<<<< HEAD
-//var theImage;
-=======
 
 //add variables for songTitle string and font string
 var theImage, font, songTitle;
 
 //green variabe for tint, unlocked boolean
 var g, unlocked = false;
->>>>>>> 2421740e9252b1b0cee9c7a2b6796c5a2cd91a74
 
 // p5 code shouldn't be inside another object, keep it global
-//function setup() {
-//	console.log("Setup");
-//	createCanvas(960, 540);
+function setup() {
+	console.log("Setup");
+	createCanvas(960, 540);
 
 	//Call the function to make the AJAX call
-<<<<<<< HEAD
-//	app.initialize();
-//}
 
-//function draw() {
-//	background(255);
-	
-//	if (theImage){
-//		image(theImage, 0, 0);
-//	} else {
-//		fill(0);
-//		text("Getting Data");
-//	}
-//}
-
-//function loadTheImage(url) {
-//	console.log('loadingImage');
-//	theImage = loadImage(url);
-//}
-=======
 	app.initialize();
 
 	// set an initial condition
@@ -222,4 +204,3 @@ function loadTheImage(url) {
 	console.log('loadingImage');
 	theImage = loadImage(url);
 }
->>>>>>> 2421740e9252b1b0cee9c7a2b6796c5a2cd91a74
